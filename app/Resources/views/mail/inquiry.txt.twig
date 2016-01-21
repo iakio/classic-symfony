@@ -1,0 +1,12 @@
+クラシックシンフォニー楽団Webサイトから、お問合せがありました。
+
+日時：{{ ""|date("Y/m/d H:i") }}
+
+●お名前：{{ data.name }}
+●メールアドレス：{{ data.email }}
+●電話番号：{{ data.tel }}
+●お問合せ種別：{% if data.type == 0 %}公演について
+{% else %}その他
+{% endif %}
+●お問合せ内容
+{{ data.content }}
