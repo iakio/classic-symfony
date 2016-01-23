@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Inquiry;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -40,7 +41,10 @@ class InquiryController extends Controller
 
         if ($form->isValid())
         {
-            $data = $form->getData();
+            $inquiry = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($inquiry);
+            $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject("Webサイトからのお問合せ")
                 ->setFrom("webmaster@example.com")
@@ -48,7 +52,7 @@ class InquiryController extends Controller
                 ->setBody(
                     $this->renderView(
                         'mail/inquiry.txt.twig',
-                        ['data' => $data]
+                        ['data' => $inquiry]
                     )
                 );
             $this->get('mailer')->send($message);
@@ -71,7 +75,7 @@ class InquiryController extends Controller
      */
     private function createInquiryForm()
     {
-        return $this->createFormBuilder()
+        return $this->createFormBuilder(new Inquiry())
             ->add('name', TextType::class)
             ->add('email', TextType::class)
             ->add('tel', TextType::class, [
