@@ -59,7 +59,7 @@ class InquiryController extends Controller
 
             return $this->redirect($this->generateUrl('app_inquiry_complete'));
         }
-        return $this->render('Inquiry/index.html.twig');
+        return $this->render('Inquiry/index.html.twig', ['form' => $form->createView()]);
     }
     /**
      * @Route("/complete")
