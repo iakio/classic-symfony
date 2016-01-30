@@ -28,4 +28,17 @@ class InquiryRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return new ArrayCollection($query->getResult());
     }
+
+    public function findUnprocessed()
+    {
+        $query = $this->createQueryBuilder('i')
+            ->where('i.processStatus = :processStatus')
+            ->orWhere('i.processStatus IS NULL')
+            ->orderBy('i.id', 'ASC')
+            ->setParameters([
+                ':processStatus' => '0'
+            ])
+            ->getQuery();
+        return $query->execute();
+    }
 }
