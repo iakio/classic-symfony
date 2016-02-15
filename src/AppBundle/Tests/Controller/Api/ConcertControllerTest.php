@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Tests\Controller;
+namespace AppBundle\Tests\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class Api\ConcertControllerTest extends WebTestCase
+class ConcertControllerTest extends WebTestCase
 {
 }
