@@ -24,11 +24,9 @@
         </testsuite>
     </testsuites>
 
-    <!--
     <php>
         <server name="KERNEL_DIR" value="app/" />
     </php>
-    -->
 
     <filter>
         <whitelist>
