@@ -35,3 +35,7 @@ swiftmailer:
     delivery_address: iakio.monospacenet@gmail.com
 
 nelmio_api_doc: ~
+
+hautelook_alice:
+    locale: ja_JP
+    seed: 1
