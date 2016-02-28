@@ -32,9 +32,9 @@ class AppExtension extends Extension
     {
         $collectionDefinition = $container->register('app.member_collection', MemberCollection::class);
 
-        foreach ($memberList as $name => $memberInfo) {
+        foreach ($memberList as $memberInfo) {
             $collectionDefinition->addMethodCall('addMember', [
-                $name, $memberInfo['part'], $memberInfo['joinedDate']
+                $memberInfo['name'], $memberInfo['part'], $memberInfo['joinedDate']
             ]);
         }
     }

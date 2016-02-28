@@ -81,5 +81,5 @@ nelmio_cors:
 
 app:
     members:
-        山田: {part: トランペット, joinedDate: "2010-10-01"}
-        田中: {part: バイオリン, joinedDate: "2008-04-10"}
+        - {name: 山田, part: トランペット, joinedDate: "2010-10-01"}
+        - {name: 田中, part: バイオリン, joinedDate: "2008-04-10"}

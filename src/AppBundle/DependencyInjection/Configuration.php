@@ -21,9 +21,9 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('members')
-                    ->useAttributeAsKey('name')
                     ->prototype('array')
                         ->children()
+                            ->scalarNode('name')->isRequired()->end()
                             ->scalarNode('part')->isRequired()->end()
                             ->scalarNode('joinedDate')->isRequired()->end()
                         ->end()
