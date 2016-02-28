@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -27,7 +28,6 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new Nelmio\ApiDocBundle\NelmioApiDocBundle();
-            $bundles[] = new Nelmio\CorsBundle\NelmioCorsBundle();
             $bundles[] = new \Hautelook\AliceBundle\HautelookAliceBundle();
             $bundles[] = new \Liip\FunctionalTestBundle\LiipFunctionalTestBundle();
         }
